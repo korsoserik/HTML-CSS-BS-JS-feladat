@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title> Síkidom és Test kalkulátor </title>
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <div class="card-group">
+        <!--3szög-->
+        <div class="card" style="width:400px">
+            <img class="card-img-top" src="haromszog.png" alt="háromszög" style="height:400px">
+            <div class="card-body">
+                <h4 class="card-title">Háromszög</h4>
+                <div class="form-group">
+                    <input type="number" class="form-control" placeholder="a" min="0" id="ha">
+                </div>
+                <div class="form-group">
+                    <input type="number" class="form-control" placeholder="b" min="0" id="hb">
+                </div>
+                <div class="form-group">
+                    <input type="number" class="form-control" placeholder="c" min="0" id="hc">
+                </div>
+                <div class="form-group">
+                    <input type="number" class="form-control" placeholder="ma" min="0" id="hma">
+                </div>
+                <div class="row mb-2">
+                    <div class="col-12 col-md-2">
+                        <label>Terület:</label>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <input type="text" class="form-control" id="hszt" disabled>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-12 col-md-2">
+                        <label>Kerület:</label>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <input type="text" class="form-control" id="hszk" disabled>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-info" onclick="haromszogk(); haromszogt();">Számol</button>
+                <select id="valaszt">
+                    <option value="m">m</option>
+                    <option value="dm">dm</option>
+                    <option value="cm">cm</option>
+                </select>
+            </div>
+        </div>
+        <!--4zet-->
+        <div class="card" style="width:400px">
+            <img class="card-img-top" src="negyzet.jpg" alt="Négyzet" style="height:400px">
+            <div class="card-body">
+                <h4 class="card-title">Négyzet</h4>
+                <div class="form-group">
+                    <input type="number" class="form-control" placeholder="a" id="na" min="0">
+                </div>
+                <div class="row mb-2">
+                    <div class="col-12 col-md-2">
+                        <label>Terület:</label>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <input type="text" class="form-control" id="nk" disabled>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-12 col-md-2">
+                        <label>Kerület:</label>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <input type="text" class="form-control" id="nt" disabled>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-info" onclick="negyzetKerulet(); negyzetTerulet();">Számol</button>
+                <select id="valaszt2">
+                    <option value="m">m</option>
+                    <option value="dm">dm</option>
+                    <option value="cm">cm</option>
+                </select>
+            </div>
+        </div>
+        <div class="w-100 d-none d-sm-block d-md-none">
+        </div>
+        <!--henger-->
+        <div class="card" style="width:400px">
+            <img class="card-img-top" src="henger.png" alt="henger" style="height:400px">
+            <div class="card-body">
+                <h4 class="card-title">Henger</h4>
+                <div class="form-group">
+                    <input type="number" class="form-control" placeholder="m" id="hem" min="0">
+                </div>
+                <div class="form-group">
+                    <input type="number" class="form-control" placeholder="r" id="her" min="0">
+                </div>
+                <div class="row mb-2">
+                    <div class="col-12 col-md-2">
+                        <label>Felszín:</label>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <input type="text" class="form-control" id="hef" disabled>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-12 col-md-2">
+                        <label>Térfogat:</label>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <input type="text" class="form-control" id="het" disabled>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-info" onclick="hengerTerulet(); hengerFelulet();">Számol</button>
+                <select id="valaszt3">
+                    <option value="m">m</option>
+                    <option value="dm">dm</option>
+                    <option value="cm">cm</option>
+                </select>
+            </div>
+        </div>
+        <!--téglatest-->
+        <div class="card" style="width:400px">
+            <img class="card-img-top" src="teglatest.png" alt="téglatest" style="height: 400px;">
+            <h4 class="card-title">Téglatest</h4>
+            <div class="card-body">
+                <div class="form-group">
+                    <input type="number" class="form-control" placeholder="a" id="ta" min="0">
+                </div>
+                <div class="form-group">
+                    <input type="number" class="form-control" placeholder="b" id="tb" min="0">
+                </div>
+                <div class="form-group">
+                    <input type="number" class="form-control" placeholder="c" id="tc" min="0">
+                </div>
+                <div class="row mb-2">
+                    <div class="col-12 col-md-2">
+                        <label>Felszín:</label>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <input type="text" class="form-control" id="tf" disabled>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-12 col-md-2">
+                        <label>Térfogat:</label>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <input type="text" class="form-control" id="tt" disabled>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-info" onclick="teglatestTerulet(); teglatestFelulet();">Számol</button>
+                <select id="valaszt4">
+                    <option value="m">m</option>
+                    <option value="dm">dm</option>
+                    <option value="cm">cm</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

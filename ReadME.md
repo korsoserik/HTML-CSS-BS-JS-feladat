@@ -1,0 +1,1 @@
+Elkészítettem a kért házi feladatot ebben a repoitoryban
